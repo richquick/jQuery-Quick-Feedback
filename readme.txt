@@ -1,8 +1,10 @@
 jQuery Quick Feedback
 
-Created by @richquick
+Created by @richquick / http://www.richquick.tv
 
 A jQuery-based feedback tab
+
+---
 
 Defaults are as follows:
 
@@ -39,3 +41,14 @@ feedbackAction: '/form/',
 tab2Action: '/form/',
 tab3Action: '/form/',
 tab4Action: '/form/'
+
+---
+
+This code is released under Creative Commons Attribution-ShareAlike license.
+
+You can use this code and make any changes you like, provided you:
+
+a) Credit me for the original work
+b) If you make any changes & distribute the code, you must do so under the same licencse or similar
+
+http://creativecommons.org/licenses/by-sa/3.0/
