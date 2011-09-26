@@ -93,6 +93,7 @@ $(document).ready(function() {
 	padding: 0;
 	width: 100%;
 	border-bottom: 3px solid #0071b9;
+	list-style-type: none;
 }
 
 #feedbackNav li {
@@ -152,6 +153,20 @@ $(document).ready(function() {
 
 #feedbackNav li.live a:hover {
 	border-top: 3px solid #008be4;
+}
+
+#feedbackForms, #feedbackForms li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#feedbackForms li {
+	display: none;
+}
+
+#feedbackForms li.currentForm {
+	display: block;
 }
 
 #feedbackWrapper label {
