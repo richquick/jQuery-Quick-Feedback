@@ -7,31 +7,43 @@
  
  			//Handy for CSS
 			$body = $('body');
-			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><a href="#" id="feedbackClose">x</a><ul id="feedbackNav"><li class="live"><a href="#">Feedback</a></li><li><a href="#">Suggestion</a></li><li><a href="#">Complaint</a></li></ul><ul id="feedbackForms"><li class="currentForm"><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Feedback</label><textarea title="Feedback goes here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Suggestion</label><textarea title="Suggestions go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Complaint</label><textarea title="Complaints go here..."></textarea><button>Submit</button></form></li></ul></div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
+			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><a href="#" id="feedbackClose">x</a><ul id="feedbackNav"><li class="live"><a href="#">Feedback</a></li><li><a href="#">Suggestion</a></li><li><a href="#">Problem</a></li><li><a href="#">Praise</a></li></ul><ul id="feedbackForms"><li class="currentForm"><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Feedback</label><textarea title="Feedback goes here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Suggestion</label><textarea title="Suggestions go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Problem</label><textarea title="Problems go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Problem</label><textarea title="Problems go here..."></textarea><button>Submit</button></form></li></ul></div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
 
             //Set the default values, use comma to separate the settings, example:
             var defaults = {
+				wording: 'Feedback',
 				method: 'post',
-				complaint: false,
-				suggestion: false,
+				tab2: false,
+				tab3: false,
+				tab4: false,
+				feedbackLink: 'Feedback',
+				tab2Link: 'Suggestion',
+				tab3Link: 'Problem',
+				tab4Link: 'Praise',
 				feedbackHead: 'Give us your feedback',
-				suggestionHead: 'What\'s your suggestion?',
-				complaintHead: 'What\'s your complaint?',
+				tab2Head: 'What\'s your suggestion?',
+				tab3Head: 'What\'s the problem?',
+				tab4Head: 'What have we done that\'s great?',
 				feedbackText: 'Give us some feedback about the website.',
-				suggestionText: 'Got a suggestion? Let us know about it.',
-				complaintText: 'Let us know if you\'re unhappy about something we\'ve done',
+				tab2Text: 'Got a suggestion? Let us know about it.',
+				tab3Text: 'Let us know if you\'re unhappy about something we\'ve done',
+				tab4Text: 'Let us know if happy with something we\'ve done',
 				feedbackFieldName: 'feedback_field',
-				suggestionFieldName: 'feedback',
-				complaintFieldName: 'feedback',
+				tab2FieldName: 'feedback',
+				tab3FieldName: 'feedback',
+				tab4FieldName: 'feedback',
 				feedbackNameFieldName: 'name_field',
-				suggestionNameFieldName: 'name',
-				complaintNameFieldName: 'name',
+				tab2NameFieldName: 'name',
+				tab3NameFieldName: 'name',
+				tab4NameFieldName: 'name',
 				feedbackEmailFieldName: 'email_field',
-				suggestionEmailFieldName: 'email',
-				complaintEmailFieldName: 'email',
+				tab2EmailFieldName: 'email',
+				tab3EmailFieldName: 'email',
+				tab4EmailFieldName: 'email',
 				feedbackAction: '/form/',
-				suggestionAction: '/form/',
-				complaintAction: '/form/'
+				tab2Action: '/form/',
+				tab3Action: '/form/',
+				tab4Action: '/form/'
             }
             // Declare variables
             var options =  $.extend(defaults, options);
@@ -45,6 +57,7 @@
 			var $feedbackTab = $('#feedbackTab');
 			var $feedbackWrapper = $('#feedbackWrapper');
 			var $feedbackBox = $('#feedbackBox');
+			var $feedbackNav = $('#feedbackNav');
 			
 			var $feedbackClose = $('#feedbackClose');
 			
@@ -52,11 +65,21 @@
 			
 			// Pull out all the options and do something with them
 			
+				// Update the tab wording
+				$('#feedbackTab').text(o.wording);
+				
 				// Define the blocks
 				$feedbackBlock = $('li:nth-of-type(1)', $feedbackForms);
-				$suggestionBlock = $('li:nth-of-type(2)', $feedbackForms);
-				$complaintBlock = $('li:nth-of-type(3)', $feedbackForms);
+				$tab2Block = $('li:nth-of-type(2)', $feedbackForms);
+				$tab3Block = $('li:nth-of-type(3)', $feedbackForms);
+				$tab4Block = $('li:nth-of-type(4)', $feedbackForms);
 			
+				// Update the nav
+				$('li:nth-of-type(1) a', $feedbackNav).text(o.feedbackLink);
+				$('li:nth-of-type(2) a', $feedbackNav).text(o.tab2Link);
+				$('li:nth-of-type(3) a', $feedbackNav).text(o.tab3Link);
+				$('li:nth-of-type(4) a', $feedbackNav).text(o.tab4Link);
+				
 				// Feedback form
 				// Heading
 				$('label.l3', $feedbackBlock).text(o.feedbackHead);
@@ -69,31 +92,43 @@
 				// Feedback form action 
 				$('form', $feedbackBlock).attr('action', o.feedbackAction);
 				
-				// Suggestion form
+				// tab2 form
 				// Heading
-				$('label.l3', $suggestionBlock).text(o.suggestionHead);
+				$('label.l3', $tab2Block).text(o.tab2Head);
 				// Title text in textarea & name attribute
-				$('textarea', $suggestionBlock).attr('title', o.suggestionText).attr('name', o.suggestionFieldName);
+				$('textarea', $tab2Block).attr('title', o.tab2Text).attr('name', o.tab2FieldName);
 				// Name field name attribute
-				$('input[type="text"]', $suggestionBlock).attr('name', o.suggestionNameFieldName);
+				$('input[type="text"]', $tab2Block).attr('name', o.tab2NameFieldName);
 				// Email field name attribute
-				$('input[type="email"]', $suggestionBlock).attr('name', o.suggestionEmailFieldName);
+				$('input[type="email"]', $tab2Block).attr('name', o.tab2EmailFieldName);
 				// Feedback form action 
-				$('form', $suggestionBlock).attr('action', o.suggestionAction);
+				$('form', $tab2Block).attr('action', o.tab2Action);
 				
-				// Complaints form
+				// tab3 form
 				// Heading
-				$('label.l3', $complaintBlock).text(o.complaintHead);
+				$('label.l3', $tab3Block).text(o.tab3Head);
 				// Title text in textarea & name attribute
-				$('textarea', $complaintBlock).attr('title', o.complaintText).attr('name', o.complaintFieldName);
+				$('textarea', $tab3Block).attr('title', o.tab3Text).attr('name', o.tab3FieldName);
 				// Name field name attribute
-				$('input[type="text"]', $complaintBlock).attr('name', o.complaintNameFieldName);
+				$('input[type="text"]', $tab3Block).attr('name', o.tab3NameFieldName);
 				// Email field name attribute
-				$('input[type="email"]', $complaintBlock).attr('name', o.complaintEmailFieldName);
+				$('input[type="email"]', $tab3Block).attr('name', o.tab3EmailFieldName);
 				// Feedback form action 
-				$('form', $complaintBlock).attr('action', o.complaintAction);
+				$('form', $tab3Block).attr('action', o.tab3Action);
+				
+				// tab4 form
+				// Heading
+				$('label.l3', $tab4Block).text(o.tab4Head);
+				// Title text in textarea & name attribute
+				$('textarea', $tab4Block).attr('title', o.tab4Text).attr('name', o.tab4FieldName);
+				// Name field name attribute
+				$('input[type="text"]', $tab4Block).attr('name', o.tab4NameFieldName);
+				// Email field name attribute
+				$('input[type="email"]', $tab4Block).attr('name', o.tab4EmailFieldName);
+				// Feedback form action 
+				$('form', $tab4Block).attr('action', o.tab4Action);
 			
-			// Check if complaint and suggestion are included. IF not, remove them.
+			// Check if tabs 2-4 are included. IF not, remove them.
 			// Remove a tab
 			function fbfRemove (thisNum) {
 				//remove the nth tab
@@ -101,13 +136,10 @@
 				$($cssSelector).hide();
 			}
 			
-			if (o.suggestion != true) {
-				fbfRemove(2);
-			}
-			
-			if (o.complaint != true) {
-				fbfRemove(3);
-			}
+			// Remove any tabs that aren't being used
+			if (o.tab2 != true) {fbfRemove(2);}
+			if (o.tab3 != true) {fbfRemove(3);}
+			if (o.tab4 != true) {fbfRemove(4);}
 			
 			// Make sure all the forms have a method
 			
@@ -197,14 +229,17 @@
 				$this.parent().addClass('live');
 				
 				switch ($thisText) { 
-        			case 'Feedback': 
+        			case o.feedbackLink: 
 						fbfSwitch (1);
 						break;
-					case 'Suggestion': 
+					case o.tab2Link: 
 						fbfSwitch (2)
 						break;
-					case 'Complaint': 
+					case o.tab3Link: 
 						fbfSwitch (3)
+						break;
+					case o.tab4Link: 
+						fbfSwitch (4)
 						break;
 				}
 				return false;
