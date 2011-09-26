@@ -6,7 +6,8 @@
         feedbackTab: function(options) {
  
  			//Handy for CSS
-			$('body').addClass('feedbackTab');
+			$body = $('body');
+			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><button>Submit</button</div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
 
             //Set the default values, use comma to separate the settings, example:
             var defaults = {
@@ -30,14 +31,24 @@
 				feedbackAction: false,
 				complaintAction: false,
 				suggestionAction: false,
-				
+				font: 'Arial'
             }
                  
             var options =  $.extend(defaults, options);
  
+ 			$feedbackTab = $('#feedbackTab');
+			$feedbackWrapper = $('#feedbackWrapper');
+
+			$feedbackTab.live("click", function() {
+				$this = $(this);
+				$feedbackWrapper.fadeIn();
+				$this.fadeOut();
+			});
+			
             return this.each(function() {
                 var o = options;
-                var slideDrawer = $(this);
+                
+				/*
 
 				// Wrap 
 				slideDrawer.wrap('<div class="feedbackTab-outer" />').parent().wrap('<div class="feedbackTab-container" />').before('<div class="feedbackTab-box" />');
@@ -257,7 +268,7 @@
 						slideMe('+');
 					}
 					return false;
-				});
+				});*/
              
             });
         }
