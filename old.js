@@ -10,27 +10,13 @@
 
             //Set the default values, use comma to separate the settings, example:
             var defaults = {
-                position: 'left',
-				startColor: '#000',
-				endColor: '#333',
-				radius: 5,
-				action: '/form/',
-				feedback: true,
-				complaint: false,
-				suggestion: false,
-				feedbackHead: 'Feedback',
-				complaintHead: 'Complaint',
-				suggestionHead: 'Suggestion',
-				feedbackText: 'Give us some feedback about the website.',
-				complaintText: 'Let us know if you\'re unhappy about something we\'ve done',
-				suggestionText: 'Got a suggestion? Let us know about it.',
-				feedbackFieldName: 'feedback',
-				complaintFieldName: 'feedback',
-				suggestionFieldName: 'feedback',
-				feedbackAction: false,
-				complaintAction: false,
-				suggestionAction: false,
-				
+                margin: 10,
+                thumbs : false,
+                iconsStart: true,
+				iconsFade: true,
+				vertical: false,
+				dots: false,
+				slideTime: 400
             }
                  
             var options =  $.extend(defaults, options);
