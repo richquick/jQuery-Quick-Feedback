@@ -7,12 +7,11 @@
  
  			//Handy for CSS
 			$body = $('body');
-			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><ul id="feedbackNav"><li class="live"><a href="#">Feedback</a></li><li><a href="#">Suggestion</a></li><li><a href="#">Complaint</a></li></ul><ul id="feedbackForms"><li class="currentForm"><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Feedback</label><textarea title="Feedback goes here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Suggestion</label><textarea title="Suggestions go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Complaint</label><textarea title="Complaints go here..."></textarea><button>Submit</button></form></li></ul></div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
+			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><a href="#" id="feedbackClose">x</a><ul id="feedbackNav"><li class="live"><a href="#">Feedback</a></li><li><a href="#">Suggestion</a></li><li><a href="#">Complaint</a></li></ul><ul id="feedbackForms"><li class="currentForm"><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Feedback</label><textarea title="Feedback goes here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Suggestion</label><textarea title="Suggestions go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Complaint</label><textarea title="Complaints go here..."></textarea><button>Submit</button></form></li></ul></div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
 
             //Set the default values, use comma to separate the settings, example:
             var defaults = {
 				method: 'post',
-				feedback: true,
 				complaint: false,
 				suggestion: false,
 				feedbackHead: 'Give us your feedback',
@@ -46,6 +45,8 @@
 			var $feedbackTab = $('#feedbackTab');
 			var $feedbackWrapper = $('#feedbackWrapper');
 			var $feedbackBox = $('#feedbackBox');
+			
+			var $feedbackClose = $('#feedbackClose');
 			
 			var $allForms = $('form', $feedbackForms);
 			
@@ -91,7 +92,22 @@
 				$('input[type="email"]', $complaintBlock).attr('name', o.complaintEmailFieldName);
 				// Feedback form action 
 				$('form', $complaintBlock).attr('action', o.complaintAction);
-				
+			
+			// Check if complaint and suggestion are included. IF not, remove them.
+			// Remove a tab
+			function fbfRemove (thisNum) {
+				//remove the nth tab
+				$cssSelector = '#feedbackNav li:nth-of-type(' + thisNum + ')';
+				$($cssSelector).hide();
+			}
+			
+			if (o.suggestion != true) {
+				fbfRemove(2);
+			}
+			
+			if (o.complaint != true) {
+				fbfRemove(3);
+			}
 			
 			// Make sure all the forms have a method
 			
@@ -124,21 +140,11 @@
 				return false;
 			});
 			
-			$feedbackWrapper.live("click", function() {
-				$this = $(this);
+			
+			$feedbackClose.live("click", function() {
 				$feedbackTab.fadeIn();
-				$this.fadeOut();
+				$feedbackWrapper.fadeOut();
 				return false;
-			});
-			
-			$feedbackBox.live("click", function() {
-				return false;
-			});
-			
-			$('button', $feedbackBox).live("click", function() {
-				$this = $(this);
-				$this.parent().parent().submit();
-				return true;
 			});
 			
 			// Add the title text in the field
