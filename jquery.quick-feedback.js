@@ -7,15 +7,10 @@
  
  			//Handy for CSS
 			$body = $('body');
-			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><button>Submit</button</div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
+			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><ul><li><li></ul><div><form id=""><button>Submit</button></div></div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
 
             //Set the default values, use comma to separate the settings, example:
             var defaults = {
-                position: 'left',
-				startColor: '#000',
-				endColor: '#333',
-				radius: 5,
-				action: '/form/',
 				feedback: true,
 				complaint: false,
 				suggestion: false,
@@ -30,19 +25,32 @@
 				suggestionFieldName: 'feedback',
 				feedbackAction: false,
 				complaintAction: false,
-				suggestionAction: false,
-				font: 'Arial'
+				suggestionAction: false
             }
                  
             var options =  $.extend(defaults, options);
  
  			$feedbackTab = $('#feedbackTab');
 			$feedbackWrapper = $('#feedbackWrapper');
+			$feedbackBox = $('#feedbackBox');
 
+			// Fading in and out
 			$feedbackTab.live("click", function() {
 				$this = $(this);
 				$feedbackWrapper.fadeIn();
 				$this.fadeOut();
+				return false;
+			});
+			
+			$feedbackWrapper.live("click", function() {
+				$this = $(this);
+				$feedbackTab.fadeIn();
+				$this.fadeOut();
+				return false;
+			});
+			
+			$feedbackBox.live("click", function() {
+				return false;
 			});
 			
             return this.each(function() {

@@ -50,6 +50,10 @@ $(document).ready(function() {
 	background: -ms-linear-gradient(top, #008be4 0%,#0071b9 100%); /* IE10+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008be4', endColorstr='#0071b9',GradientType=0 ); /* IE6-9 */
 	background: linear-gradient(top, #008be4 0%,#0071b9 100%); /* W3C */
+	-moz-box-shadow: 0 0 2px #000;
+	-webkit-box-shadow: 0 0 2px #000;
+	-o-box-shadow: 0 0 2px #000;
+	box-shadow: 0 0 2px #000;
 }
 
 #feedbackTab:hover {
@@ -98,11 +102,16 @@ $(document).ready(function() {
 	-webkit-box-shadow: 0 0 2px #000;
 	-o-box-shadow: 0 0 2px #000;
 	box-shadow: 0 0 2px #000;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
 	border: none;
 	font-size: 14px;
 	font-weight: bold;
 	cursor: pointer;
 	cursor: hand;
+	border: 1px solid #fff;
 }
 
 #feedbackBox button:hover {
