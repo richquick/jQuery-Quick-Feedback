@@ -86,17 +86,21 @@
 			// The tab navigation
 			$fbtlnk  = $('a', '#feedbackNav');
 			
+			$feedbackForms = $('#feedbackForms');
 			$currentForm = $('.currentForm');
 			
 			// Switch the feedback forms
 			function fbfSwitch (thisNum) {
 				
 				// remove the currentForm class from all <li>s
-				$currentForm.removeClass('currentForm').hide();
+				$currentForm.removeClass('currentForm');
+				
+				// Hide all forms
+				$('li', $feedbackForms).hide();
 				
 				//Fade in the nth form
 				$cssSelector = '#feedbackForms li:nth-of-type(' + thisNum + ')';
-				$($cssSelector).fadeIn().addClass('currentForm');;
+				$($cssSelector).show();
 			}
 			
 			// When the tbs are clicked, switch the forms
