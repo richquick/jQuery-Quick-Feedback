@@ -7,7 +7,7 @@
  
  			//Handy for CSS
 			$body = $('body');
-			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><ul><li><li></ul><div><form id=""><button>Submit</button></div></div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
+			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><ul><li><a href="#" id="fbtlnk1">Feedback</a></li><li><a href="#" id="fbtlnk2">Suggestions</a></li><li><a href="#" id="fbtlnk1">Complaints</a></li></ul><div id="fbt1"><form><label id="fbt1f">Feedback</label><textarea id="fbt1f">Feedback goes here...</textarea><button>Submit</button></form></div></div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
 
             //Set the default values, use comma to separate the settings, example:
             var defaults = {
