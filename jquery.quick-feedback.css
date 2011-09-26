@@ -68,8 +68,8 @@
 	margin: 100px auto;
 	background: #fff;
 	width: 500px;
-	height: 350px;
-	padding: 30px;
+	min-height: 325px;
+	padding: 30px 30px 55px 30px;
 	-moz-box-shadow: 0 0 5px #000;
 	-webkit-box-shadow: 0 0 5px #000;
 	-o-box-shadow: 0 0 5px #000;
