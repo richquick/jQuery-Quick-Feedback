@@ -7,7 +7,7 @@
  
  			//Handy for CSS
 			$body = $('body');
-			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><a href="#" id="feedbackClose">x</a><ul id="feedbackNav"><li class="live"><a href="#">Feedback</a></li><li><a href="#">Suggestion</a></li><li><a href="#">Problem</a></li><li><a href="#">Praise</a></li></ul><ul id="feedbackForms"><li class="currentForm"><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Feedback</label><textarea title="Feedback goes here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Suggestion</label><textarea title="Suggestions go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Problem</label><textarea title="Problems go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Problem</label><textarea title="Problems go here..."></textarea><button>Submit</button></form></li></ul></div></div>').append('<div id="feedbackTab"><a href="#" id="feedbackTabLink">Feedback</a></div>');
+			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><a href="#" id="feedbackClose">x</a><ul id="feedbackNav"><li class="live" id="t1"><a href="#"><span></span>Feedback</a></li><li id="t2"><a href="#"><span></span>Suggestion</a></li><li id="t3"><a href="#"><span></span>Problem</a></li><li id="t4"><a href="#"><span></span>Praise</a></li></ul><ul id="feedbackForms"><li class="currentForm"><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Feedback</label><textarea title="Feedback goes here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Suggestion</label><textarea title="Suggestions go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Problem</label><textarea title="Problems go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Problem</label><textarea title="Problems go here..."></textarea><button>Submit</button></form></li></ul></div></div>').append('<div id="feedbackTab"><a href="#" id="feedbackTabLink">Feedback</a></div>');
 			
             //Set the default values, use comma to separate the settings, example:
             var defaults = {
@@ -78,10 +78,10 @@
 				$tab4Block = $('li:nth-child(4)', $feedbackForms);
 				
 				// Update the nav
-				$('li:nth-child(1) a', $feedbackNav).text(o.feedbackLink);
-				$('li:nth-child(2) a', $feedbackNav).text(o.tab2Link);
-				$('li:nth-child(3) a', $feedbackNav).text(o.tab3Link);
-				$('li:nth-child(4) a', $feedbackNav).text(o.tab4Link);
+				$('li:nth-child(1) a', $feedbackNav).html('<span></span>' + o.feedbackLink);
+				$('li:nth-child(2) a', $feedbackNav).html('<span></span>' + o.tab2Link);
+				$('li:nth-child(3) a', $feedbackNav).html('<span></span>' + o.tab3Link);
+				$('li:nth-child(4) a', $feedbackNav).html('<span></span>' + o.tab4Link);
 				
 				// Feedback form
 				// Heading

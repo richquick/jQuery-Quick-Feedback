@@ -6,6 +6,12 @@ A jQuery-based feedback tab
 
 ---
 
+Icons courtesy of:
+
+http://p.yusukekamiyamane.com/ (Note: Original licensing terms apply)
+
+---
+
 Defaults are as follows:
 
 wording: 'Feedback',
