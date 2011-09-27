@@ -6,6 +6,7 @@
 	top: 30%;
 	right: 40px;
 	outline: none;
+	z-index: 99999999;
 }
 
 #feedbackTabLink {
@@ -66,6 +67,7 @@
 	display: none;
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
+	z-index: 99999999;
 }
 
 #feedbackBox {
@@ -305,7 +307,7 @@
 html, body {_height: 100%; _margin: 0; _padding: 0;}
 #feedbackBox {_border: 1px solid #ccc;}
 #feedbackTab {_position: absolute;}
-#feedbackWrapper {_background: url(transp-bg.gif); _height: 100%;}
+#feedbackWrapper {_position: absolute;_background: url(transp-bg.gif); _height: 100%;}
 #feedbackTab {_right: 0;}
 #feedbackTab:hover {_right: 0;}
 #feedbackNav li {_float: left;}
