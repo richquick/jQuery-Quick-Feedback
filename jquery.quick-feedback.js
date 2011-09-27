@@ -217,7 +217,7 @@
 				$('li', $feedbackForms).hide();
 				
 				//Fade in the nth form
-				$cssSelector = '#feedbackForms li:nth-of-type(' + thisNum + ')';
+				$cssSelector = '#feedbackForms li:nth-child(' + thisNum + ')';
 				$($cssSelector).show();
 			}
 			
