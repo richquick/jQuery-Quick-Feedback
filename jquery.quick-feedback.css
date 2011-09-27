@@ -20,6 +20,8 @@
 	-moz-transform-origin: right top;
 	-o-transform: rotate(-90deg); 
 	-o-transform-origin: right top;
+	-ms-transform: rotate(90deg);
+	-ms-transform-origin: right top;
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	transform: rotate(-90deg); 
 	transform-origin: right top;
