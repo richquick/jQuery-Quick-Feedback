@@ -233,11 +233,12 @@
 	border: 1px solid #888;
 	padding: 3px;
 	color: #666;
+	-moz-box-shadow: none;
 }
 
 #feedbackWrapper .personalDetails label {
 	clear: none;
-	width: 15%;
+	width: 16%;
 	float: left;
 	padding-top: 3px;
 }
@@ -245,6 +246,7 @@
 #feedbackWrapper .personalDetails input {
 	float: left;
 	margin-right: 30px;
+	width: 23%;
 }
 
 #feedbackWrapper textarea {

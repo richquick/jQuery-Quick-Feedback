@@ -201,7 +201,7 @@
 				$this = $(this);
 				thisVal = $this.val();
 				thisTitle = $this.attr('title');
-				if (thisVal.trim() == '') {
+				if ($.trim(thisVal) == '') {
 					$this.val(thisTitle);
 				}
 			});
