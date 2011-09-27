@@ -23,6 +23,8 @@
 	-ms-transform: rotate(90deg);
 	-ms-transform-origin: right top;
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+	zoom: 1;
 	transform: rotate(-90deg); 
 	transform-origin: right top;
 	-webkit-border-top-right-radius: 7px;
