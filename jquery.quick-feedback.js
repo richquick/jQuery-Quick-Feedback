@@ -167,10 +167,9 @@
 			}
 			
 			// Fading in and out when you click the tab
-			$feedbackTab.live("click", function() {
-				$this = $(this);
+			$feedbackTabLink.live("click", function() {
 				$feedbackWrapper.fadeIn();
-				$this.fadeOut();
+				$feedbackTab.hide();
 				return false;
 			});
 			

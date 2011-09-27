@@ -305,18 +305,21 @@
 html, body {_height: 100%; _margin: 0; _padding: 0;}
 #feedbackBox {_border: 1px solid #ccc;}
 #feedbackTab {_position: absolute;}
-#feedbackWrapper {_background: url(transp-bg.png); _height: 100%;}
+#feedbackWrapper {_background: url(transp-bg.gif); _height: 100%;}
 #feedbackTab {_right: 0;}
 #feedbackTab:hover {_right: 0;}
+#feedbackNav li {_float: left;}
+#feedbackBox textarea {_height: 150px;}
 /*IE7*/
 *+html #feedbackBox {border: 1px solid #ccc;}
-*+html #feedbackWrapper {background: url(transp-bg.png);}
+*+html #feedbackWrapper {background: url(transp-bg.gif);}
 *+html #feedbackTab {right: -2px;}
 *+html #feedbackTab:hover {right: 0;}
+*+html #feedbackNav li {float: left;}
 /*IE8*/
 @media \0screen {
 	#feedbackBox {border: 1px solid #ccc;}
-	#feedbackWrapper {background: url(transp-bg.png);}
+	#feedbackWrapper {background: url(transp-bg.gif);}
 	#feedbackTab {right: -75px;}
 	#feedbackTab:hover {right: -73px;}
 }
