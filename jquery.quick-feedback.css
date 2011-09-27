@@ -78,6 +78,19 @@
 	box-shadow: 0 0 5px #000;
 }
 
+/* IE Hacks */
+/*IE6*/
+*:first-child+html #feedbackBox {border: 1px solid #ccc;}
+*:first-child+html #feedbackWrapper {background: url(transp-bg.gif);}
+/*IE7*/
+*+html #feedbackBox {border: 1px solid #ccc;}
+*+html #feedbackWrapper {background: url(transp-bg.png);}
+/*IE8*/
+@media \0screen {
+	#feedbackBox {border: 1px solid #ccc;}
+	#feedbackWrapper {background: url(transp-bg.png);}
+}
+
 #feedbackClose {
 	display: block;
 	position: absolute;
@@ -90,7 +103,7 @@
 	background: -webkit-linear-gradient(top, #c00 0%,#a00 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #c00 0%,#a00 100%); /* Opera11.10+ */
 	background: -ms-linear-gradient(top, #c00 0%,#a00 100%); /* IE10+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c00', endColorstr='#a00',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc0000', endColorstr='#aa0000',GradientType=0 ); /* IE6-9 */
 	background: linear-gradient(top, #c00 0%,#a00 100%); /* W3C */
 	-moz-box-shadow: 0 0 2px #000;
 	-webkit-box-shadow: 0 0 2px #000;
@@ -117,7 +130,7 @@
 	background: -webkit-linear-gradient(top, #f00 0%,#c00 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #f00 0%,#c00 100%); /* Opera11.10+ */
 	background: -ms-linear-gradient(top, #f00 0%,#c00 100%); /* IE10+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f00', endColorstr='#c00',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#cc0000',GradientType=0 ); /* IE6-9 */
 	background: linear-gradient(top, #f00 0%,#c00 100%); /* W3C */
 }
 
@@ -156,7 +169,7 @@
 	background: -webkit-linear-gradient(top, #aaa 0%,#888 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top, #aaa 0%,#888 100%); /* Opera11.10+ */
 	background: -ms-linear-gradient(top, #aaa 0%,#888 100%); /* IE10+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaa', endColorstr='#888',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aaaaaa', endColorstr='#888888',GradientType=0 ); /* IE6-9 */
 	background: linear-gradient(top, #aaa 0%,#888 100%); /* W3C */
 	margin-right: 3px;
 	border-top: 3px solid #fff;

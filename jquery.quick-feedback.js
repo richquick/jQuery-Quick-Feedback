@@ -8,7 +8,7 @@
  			//Handy for CSS
 			$body = $('body');
 			$body.addClass('quickFeedback').append('<div id="feedbackWrapper"><div id="feedbackBox"><a href="#" id="feedbackClose">x</a><ul id="feedbackNav"><li class="live"><a href="#">Feedback</a></li><li><a href="#">Suggestion</a></li><li><a href="#">Problem</a></li><li><a href="#">Praise</a></li></ul><ul id="feedbackForms"><li class="currentForm"><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Feedback</label><textarea title="Feedback goes here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Suggestion</label><textarea title="Suggestions go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Problem</label><textarea title="Problems go here..."></textarea><button>Submit</button></form></li><li><form><div class="personalDetails"><div><label class="l1">Your name:</label><input type="text" title="Your name..." /></div><div><label class="l2">Your email:</label><input type="email" title="Your email..." /></div></div><label class="l3">Problem</label><textarea title="Problems go here..."></textarea><button>Submit</button></form></li></ul></div></div>').append('<a href="#" id="feedbackTab">Feedback</a>');
-
+			
             //Set the default values, use comma to separate the settings, example:
             var defaults = {
 				wording: 'Feedback',
@@ -45,6 +45,7 @@
 				tab3Action: '/form/',
 				tab4Action: '/form/'
             }
+			
             // Declare variables
             var options =  $.extend(defaults, options);
  			var o = options;
@@ -69,16 +70,17 @@
 				$('#feedbackTab').text(o.wording);
 				
 				// Define the blocks
-				$feedbackBlock = $('li:nth-of-type(1)', $feedbackForms);
-				$tab2Block = $('li:nth-of-type(2)', $feedbackForms);
-				$tab3Block = $('li:nth-of-type(3)', $feedbackForms);
-				$tab4Block = $('li:nth-of-type(4)', $feedbackForms);
-			
+				
+				$feedbackBlock = $('li:nth-child(1)', $feedbackForms);
+				$tab2Block = $('li:nth-child(2)', $feedbackForms);
+				$tab3Block = $('li:nth-child(3)', $feedbackForms);
+				$tab4Block = $('li:nth-child(4)', $feedbackForms);
+				
 				// Update the nav
-				$('li:nth-of-type(1) a', $feedbackNav).text(o.feedbackLink);
-				$('li:nth-of-type(2) a', $feedbackNav).text(o.tab2Link);
-				$('li:nth-of-type(3) a', $feedbackNav).text(o.tab3Link);
-				$('li:nth-of-type(4) a', $feedbackNav).text(o.tab4Link);
+				$('li:nth-child(1) a', $feedbackNav).text(o.feedbackLink);
+				$('li:nth-child(2) a', $feedbackNav).text(o.tab2Link);
+				$('li:nth-child(3) a', $feedbackNav).text(o.tab3Link);
+				$('li:nth-child(4) a', $feedbackNav).text(o.tab4Link);
 				
 				// Feedback form
 				// Heading
@@ -132,7 +134,7 @@
 			// Remove a tab
 			function fbfRemove (thisNum) {
 				//remove the nth tab
-				$cssSelector = '#feedbackNav li:nth-of-type(' + thisNum + ')';
+				$cssSelector = '#feedbackNav li:nth-child(' + thisNum + ')';
 				$($cssSelector).hide();
 			}
 			
@@ -163,7 +165,6 @@
 				$($cssSelector).show();
 			}
 			
-
 			// Fading in and out when you click the tab
 			$feedbackTab.live("click", function() {
 				$this = $(this);
@@ -171,7 +172,6 @@
 				$this.fadeOut();
 				return false;
 			});
-			
 			
 			$feedbackClose.live("click", function() {
 				$feedbackTab.fadeIn();
