@@ -6,6 +6,12 @@ A jQuery-based feedback tab
 
 ---
 
+The plugin can be configured to work with any server-side form.
+
+$('body').feedbackTab({tab2: true, feedbackAction: '/form1/form.php', tab2Action: 'http://www.this.com/form.aspx'});
+
+---
+
 Icons courtesy of:
 
 http://p.yusukekamiyamane.com/ (Note: Original licensing terms apply)
