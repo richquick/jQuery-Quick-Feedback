@@ -328,6 +328,11 @@ html, body {_height: 100%; _margin: 0; _padding: 0;}
 #feedbackTab:hover {_right: 0;}
 #feedbackNav li {_float: left;}
 #feedbackBox textarea {_height: 150px;}
+#feedbackNav li a span {_top: 10px; _left: -30px;}
+#feedbackNav li#t1 a span {_background: url(ico-bubble.gif) no-repeat right center;}
+#feedbackNav li#t2 a span {_background: url(ico-bulb.gif) no-repeat right center;}
+#feedbackNav li#t3 a span {_background: url(ico-warn.gif) no-repeat right center;}
+#feedbackNav li#t4 a span {_background: url(ico-heart.gif) no-repeat right center;}
 /*IE7*/
 *+html #feedbackBox {border: 1px solid #ccc;}
 *+html #feedbackWrapper {background: url(transp-bg.gif);}
